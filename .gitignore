@@ -1,0 +1,8 @@
+.idea/
+*.iml
+api-gateway/target/
+model-shared/target/
+login-service/target/
+service-registry/target/
+transaction-history-service/target/classes/Application.class
+transaction-history-service/target/

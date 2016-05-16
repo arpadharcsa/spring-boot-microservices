@@ -1,0 +1,18 @@
+.navbar-brand {
+    font-size: 1.5em;
+    text-decoration: none;
+    background: transparent url(images/WUP_logo.jpg) no-repeat left center;
+    color: white;
+    width: 200px;
+}
+
+.content {
+    margin-top: 50px;
+}
+
+.logout-wrapper {
+    display: inline-block;
+    line-height: 50px;
+    width: 200px;
+    float: right;
+}

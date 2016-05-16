@@ -1,0 +1,85 @@
+<!doctype html>
+<html ng-app="app">
+<head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <title>Backend Back-end Back end</title>
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="libs/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="wup.css">
+    <script src="libs/jquery/jquery.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.js"></script>
+    <script src="libs/angular/angular.js"></script>
+    <script src="app.js"></script>
+</head>
+<body ng-controller='MainCtrl'>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                    aria-expanded="false" aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#"></a>
+        </div>
+        <div id="navbar" class="navbar-collapse collapse">
+            <form ng-hide="loggedIn()" ng-submit="login()" class="navbar-form navbar-right">
+                <div class="form-group">
+                    <input type="text" placeholder="Username" ng-model="username" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="password" placeholder="Password" ng-model="password" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-success">login</button>
+            </form>
+            <div class="logout-wrapper right text-right" ng-show="loggedIn()">
+                <span>
+                    Logged in as {{username}}
+                    <a href ng-click="logout()">Logout</a>
+                </span>
+            </div>
+        </div>
+        <!--/.navbar-collapse -->
+    </div>
+</nav>
+<div class="container content">
+    <div ng-hide="loggedIn()" class="jumbotron">
+        <div class="container">
+            <h1>Hello, MeetUp!</h1>
+
+            <p></p>
+
+        </div>
+    </div>
+    <div class="alert alert-danger" role="alert" ng-show="error">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        {{error}}
+    </div>
+    <div ng-show="loggedIn()">
+        <div class="row">
+            <table class="table table-striped">
+                <tr>
+                    <th>Index</th>
+                    <th>Source account</th>
+                    <th>Target account</th>
+                    <th>Amount</th>
+                    <th>Status</th>
+                </tr>
+                <tr data-ng-repeat="item in historyData">
+                    <td>{{$index+1}}</td>
+                    <td>{{item.sourceAccount}}</td>
+                    <td>{{item.targetAccount}}</td>
+                    <td>{{item.amount}}</td>
+                    <td>{{item.status}}</td>
+                </tr>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
